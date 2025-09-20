@@ -1,0 +1,410 @@
+/* Custom CSS for Personal Website */
+
+/* General Styles */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding-top: 76px;
+}
+
+/* Navigation Styles */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--warning-color) !important;
+}
+
+/* Hero Sections */
+.hero-section,
+.hometown-hero,
+.food-hero,
+.tourist-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+}
+
+.hometown-hero {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.food-hero {
+    background: linear-gradient(135deg, #fd7e14 0%, #e83e8c 100%);
+}
+
+.tourist-hero {
+    background: linear-gradient(135deg, #6f42c1 0%, #e83e8c 100%);
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section::before,
+.hometown-hero::before,
+.food-hero::before,
+.tourist-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom repeat-x;
+    z-index: 1;
+}
+
+.hero-overlay > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.fade-in-delay-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Styles */
+.feature-card,
+.food-card,
+.tourist-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.feature-card:hover,
+.food-card:hover,
+.tourist-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.feature-card .feature-icon,
+.interest-icon,
+.gem-icon {
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon,
+.interest-icon:hover,
+.gem-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Page Styles */
+.profile-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.skill-item .progress {
+    height: 8px;
+}
+
+.progress-bar {
+    transition: width 1.5s ease-in-out;
+}
+
+/* Food Page Styles */
+.food-stats,
+.tourist-stats {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.food-tags,
+.attraction-tags {
+    margin-top: 1rem;
+}
+
+.food-tags .badge,
+.attraction-tags .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Tourist Page Styles */
+.modern-attraction-card,
+.culture-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modern-attraction-card:hover,
+.culture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hidden-gem-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.hidden-gem-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-item {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1.5rem;
+}
+
+/* Utility Classes */
+.street-food-item,
+.fact-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.street-food-item:hover,
+.fact-card:hover {
+    transform: translateY(-5px);
+}
+
+.location-info {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Social Links */
+.social-links a {
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: var(--warning-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .timeline {
+        padding-left: 2rem;
+    }
+    
+    .timeline::before {
+        left: 0.75rem;
+    }
+    
+    .timeline-marker {
+        left: -2.5rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-overlay {
+        min-height: 70vh;
+    }
+    
+    .display-3 {
+        font-size: 2rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Custom Button Styles */
+.btn {
+    border-radius: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Form Styles */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    footer,
+    .btn {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+}
